@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        .activated{
+            color:red
+        }
+        .activated2{
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div @click='handerDivCilck' :class='{activated:isActivated}'>Hello World</div>
+        <div @click='handerDivCilck1' :class='style1'>Hello World</div>
+        <div @click='handerDivCilck1' :class='[style1,style2]'>Hello World</div>
+        <div @click='handerDivCilck3' :style='style3'>Hello World</div>
+        <div @click='handerDivCilck3' :style='[style3,style4,{fontSize:"20px"}]'>Hello World</div>
+    </div>
+
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                isActivated:false,
+                style1:'',
+                style2:'activated2',
+                style3:{
+                    color:'black'
+                },
+                style4:{
+                    fontWeight: '800'
+                }
+            },
+            methods: {
+                handerDivCilck(){
+                    this.isActivated=!this.isActivated;
+                },
+                handerDivCilck1(){
+                    this.style1=this.style1==='activated'?'':'activated';
+                },
+                handerDivCilck3(){
+                    this.style3.color=this.style3.color==='black'?'red':'black';
+                }
+            },
+        });
+    </script>
+</body>
+</html>
