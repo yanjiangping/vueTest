@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(item,index) of list" :key="item.key">{{item.text}}---{{index}}</div>
+        <div v-for="(item,key,index) of user">{{item}}--{{key}}--{{index}}</div>
+    </div>
+
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                list:[
+                    {id:'1',text:'hello'},
+                    {id:'2',text:'Yan'},
+                    {id:'3',text:'jp'}
+                ],
+                user:{
+                    name:'Yjp',
+                    age:26,
+                    sex:1
+                }
+            }
+        })
+    </script>
+</body>
+</html>
