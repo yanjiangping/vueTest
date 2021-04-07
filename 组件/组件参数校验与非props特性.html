@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    
+    <div id="root">
+        <child content='qwerty'></child>
+    </div>
+
+    <script>
+
+        Vue.component('child', {
+            props:{
+                //content:String
+                //content:[Number,String]
+                content:{
+                    type:String,
+                    required:false,
+                    default:'hellow world',
+                    validator(value){
+                        return (value.length>5);
+                    }
+                }
+            },
+            template:'<div>{{content}}</div>'
+        })
+        
+        var vm = new Vue({
+            el:'#root'
+        })
+    </script>
+</body>
+</html>
