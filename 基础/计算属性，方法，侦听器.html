@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{fullName}}
+        {{age}}
+    </div>
+
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                firstName:'Yan',
+                lastName:'JiangPing',
+                fullName:'Yan JiangPing',
+                age:26
+            },
+            watch: {
+                firstName(){
+                    this.fullName=this.firstName+' '+this.lastName;
+                },
+                lastName(){
+                    this.fullName=this.firstName+' '+this.lastName;
+                }
+            },
+            // methods: {
+            //     fullName(){
+            //         return this.firstName+' '+this.lastName
+            //     }
+            // },
+            // computed: {
+            //     fullName(){
+            //         return this.firstName+' '+this.lastName
+            //     }
+            // },
+        })
+    </script>
+</body>
+</html>
