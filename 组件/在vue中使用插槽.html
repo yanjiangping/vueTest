@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+    <div id="root">
+        <!-- <child content='<p>Yan</p>'></child> -->
+        <child>
+            <div slot="first">Yan</div>
+            <div slot="last">Jp</div>
+        </child>
+    </div>
+
+    <script>
+
+        Vue.component('child', {
+            props:['content'],
+            // template:`<div>
+            //             <p>hello</p>
+            //             <div v-html='content'></div>
+            //           </div>`
+            template:`<div>
+                        <p>Hello</p>
+                        <slot name='first'>默认内容</slot>
+                        <slot name='last'><h1>默认</h1></slot>
+                      </div>`
+        })
+
+        var vm = new Vue({
+            el:'#root'
+        })
+    </script>
+    
+</body>
+</html>
